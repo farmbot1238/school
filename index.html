@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدرسة الشهيد سائد المعايطة - الصفحة الرئيسية</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
         
@@ -275,6 +276,15 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="exam" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="white" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23exam)"/></svg>');
         }
+        
+        .developer-card {
+            transition: all 0.3s ease;
+        }
+        
+        .developer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -298,6 +308,7 @@
                         <a href="#achievements" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">إنجازات المدرسة</a>
                         <a href="#exams" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">الامتحانات الإلكترونية</a>
                         <a href="#graduates" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">أبرز الخريجين</a>
+                        <a href="#developers" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">فريق التطوير</a>
                         <a href="#contact" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">اتصل بنا</a>
                     </div>
                 </div>
@@ -319,7 +330,8 @@
                 <a href="#about" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">تعريف المدرسة</a>
                 <a href="#achievements" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">إنجازات المدرسة</a>
                 <a href="#exams" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">الامتحانات الإلكترونية</a>
-                <a href="#graduates" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">أبرز الشخصيات</a>
+                <a href="#graduates" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">أبرز الخريجين</a>
+                <a href="#developers" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">فريق التطوير</a>
                 <a href="#contact" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">اتصل بنا</a>
             </div>
         </div>
@@ -559,6 +571,75 @@
         </div>
     </section>
 
+    <!-- Developers Section -->
+    <section id="developers" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4">فريق تطوير الموقع</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">طلاب مبدعون قاموا بتصميم وتطوير هذا الموقع</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="developer-card bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl shadow-lg text-center scroll-reveal group">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <span class="text-2xl text-white">👨‍💻</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">أحمد سامر المعايطة</h3>
+                    <p class="text-gray-600 font-medium">مطور الواجهة الأمامية</p>
+                    <div class="mt-4 flex justify-center space-x-4 space-x-reverse">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fab fa-html5 text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fab fa-css3-alt text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <i class="fab fa-js text-white text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="developer-card bg-gradient-to-br from-green-50 to-teal-100 p-6 rounded-xl shadow-lg text-center scroll-reveal group">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <span class="text-2xl text-white">👨‍💻</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">عبدالرحمن أحمد المعايطة</h3>
+                    <p class="text-gray-600 font-medium">مصمم واجهات المستخدم</p>
+                    <div class="mt-4 flex justify-center space-x-4 space-x-reverse">
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-palette text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                            <i class="fab fa-figma text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                            <i class="fab fa-sketch text-white text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="developer-card bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl shadow-lg text-center scroll-reveal group">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <span class="text-2xl text-white">👨‍💻</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">هيثم سعود المعايطة</h3>
+                    <p class="text-gray-600 font-medium">مطور الخلفية والواجهة</p>
+                    <div class="mt-4 flex justify-center space-x-4 space-x-reverse">
+                        <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
+                            <i class="fab fa-github text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                            <i class="fab fa-react text-white text-sm"></i>
+                        </div>
+                        <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                            <i class="fab fa-node-js text-white text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -577,7 +658,7 @@
                             </div>
                             <div class="text-center">
                                 <div class="font-semibold text-lg gradient-text">رقم الهاتف</div>
-                                <div class="text-gray-600"}>0772530028</div>
+                                <div class="text-gray-600">0772530028</div>
                             </div>
                         </div>
                         
@@ -592,13 +673,15 @@
                         </div>
                         
                         <div class="contact-item flex items-center justify-center p-4 rounded-lg">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center ml-4 shadow-lg">
-                                <span class="text-2xl text-white">📘</span>
-                            </div>
-                            <div class="text-center">
-                                <div class="font-semibold text-lg gradient-text">صفحة الفيسبوك</div>
-                                <div class="text-gray-600">مدرسة الشهيد سائد المعايطه الثانويه للبنين</div>
-                            </div>
+                            <a href="https://www.facebook.com/share/1CPHKpEXpv/" target="_blank" class="flex items-center justify-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center ml-4 shadow-lg">
+                                    <span class="text-2xl text-white">📘</span>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-semibold text-lg gradient-text">صفحة الفيسبوك</div>
+                                    <div class="text-gray-600">مدرسة الشهيد سائد المعايطه الثانويه للبنين</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -628,6 +711,7 @@
                         <li><a href="#achievements" class="hover:text-white transition duration-300">إنجازات المدرسة</a></li>
                         <li><a href="#exams" class="hover:text-white transition duration-300">الامتحانات الإلكترونية</a></li>
                         <li><a href="#graduates" class="hover:text-white transition duration-300">أبرز الخريجين</a></li>
+                        <li><a href="#developers" class="hover:text-white transition duration-300">فريق التطوير</a></li>
                     </ul>
                 </div>
                 
@@ -645,21 +729,21 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">تابعنا</h4>
                     <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
-                            <span class="text-sm">📘</span>
+                        <a href="https://www.facebook.com/share/1CPHKpEXpv/" target="_blank" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transition duration-300">
-                            <span class="text-sm">🐦</span>
+                            <i class="fab fa-twitter text-sm"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition duration-300">
-                            <span class="text-sm">📷</span>
+                            <i class="fab fa-instagram text-sm"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p class="text-lg font-medium">تصميم وتطوير: أحمد سامر المعايطة</p>
+                <p class="text-lg font-medium">تصميم وتطوير: أحمد سامر المعايطة، عبدالرحمن أحمد المعايطة، هيثم سعود المعايطة</p>
                 <p class="text-sm text-gray-400 mt-2">&copy; 2025 جميع الحقوق محفوظة</p>
             </div>
         </div>
@@ -842,5 +926,5 @@
             initHeroButtons();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97b6c18f574532ae',t:'MTc1NzI1Mzg3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
