@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرسة الشهيد سائد المعايطة - الصفحة الرئيسية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/><circle cx="20" cy="80" r="0.5" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        
+        .nav-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .stats-counter {
+            animation: countUp 2s ease-out;
+            position: relative;
+        }
+        
+        .stats-counter::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            animation: slideIn 1s ease-out 0.5s both;
+        }
+        
+        @keyframes slideIn {
+            from { width: 0; opacity: 0; }
+            to { width: 60px; opacity: 1; }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.8); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .interactive-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .interactive-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .interactive-button:hover::before {
+            left: 100%;
+        }
+        
+        .interactive-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float-elements 15s infinite ease-in-out;
+        }
+        
+        .floating-elements::before {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-elements::after {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 7s;
+        }
+        
+        @keyframes float-elements {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .exam-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exam-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="exam" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="white" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23exam)"/></svg>');
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center ml-3">
+                            <span class="text-white font-bold text-lg">🏫</span>
+                        </div>
+                        <h1 class="text-xl font-bold text-gray-800">مدرسة الشهيد سائد المعايطة</h1>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-4 space-x-reverse">
+                        <a href="#home" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">الرئيسية</a>
+                        <a href="#about" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">تعريف المدرسة</a>
+                        <a href="#achievements" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">إنجازات المدرسة</a>
+                        <a href="#exams" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">الامتحانات الإلكترونية</a>
+                        <a href="#graduates" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">أبرز الخريجين</a>
+                        <a href="#contact" class="nav-item text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">اتصل بنا</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
+                <a href="#about" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">تعريف المدرسة</a>
+                <a href="#achievements" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">إنجازات المدرسة</a>
+                <a href="#exams" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">الامتحانات الإلكترونية</a>
+                <a href="#graduates" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">أبرز الشخصيات</a>
+                <a href="#contact" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">اتصل بنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 relative">
+        <div class="floating-elements"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">مرحباً بكم في <span class="text-white">مدرسة الشهيد سائد المعايطة</span></h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">نبني جيل المستقبل بتعليم متميز وبيئة تعليمية محفزة للإبداع والتميز</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="interactive-button border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 pulse-animation">
+                        تعرف على المدرسة
+                    </button>
+                    <button class="interactive-button bg-white bg-opacity-20 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-30 transition duration-300">
+                        تواصل معنا
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center">
+                <div class="stats-counter text-center">
+                    <div class="text-6xl font-bold text-purple-600 mb-4">15</div>
+                    <div class="text-xl text-gray-600">عاما في خدمة التعليم</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-8">نبذه عن مدرسة الشهيد سائد المعايطة</h2>
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto relative">
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl">🏫</span>
+                    </div>
+                    <p class="text-lg text-gray-700 leading-relaxed text-right pt-8"> 
+                        هي مدرسة ثانويه حكوميه للبنين, تقع في بلدة ادر التابعه للكرك, تتميز المدرسه بكونها تحمل اسم الشهيد سائد المعايطه, رمزا للتضحيه والفداء.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4"> من أهم انجازات المدرسه</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">فخورون بإنجازاتنا وتميز طلابنا في مختلف المجالات التقنيه والرياضية</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl border border-yellow-200 scroll-reveal group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl text-white">🏆</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-yellow-800">مسابقة مقدام</h3>
+                        <div class="w-24 h-24 bg-white bg-opacity-50 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-inner">
+                            <span class="text-sm text-yellow-600 font-medium">حققت مدرسة ادر الثانويه للبنين انجازا مميزا حيث فازت بجائزة المركز الاول على مستوى المملكه</span>
+                        </div>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200 scroll-reveal group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl text-white">🥇</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-green-800">دورة الامن السيبراني</h3>
+                        <div class="w-24 h-24 bg-white bg-opacity-50 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-inner">
+                            <span class="text-sm text-green-600 font-medium">صورة</span>
+                        </div>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-full h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200 scroll-reveal group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl text-white">🎖️</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-blue-800">اسم الإنجاز</h3>
+                        <div class="w-24 h-24 bg-white bg-opacity-50 rounded-lg mx-auto mb-3 flex items-center justify-center shadow-inner">
+                            <span class="text-sm text-blue-600 font-medium">صورة</span>
+                        </div>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exams Section -->
+    <section id="exams" class="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4">قسم الامتحانات الإلكترونية</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">منصة متكاملة للامتحانات الإلكترونية لتسهيل عملية التقييم والتعلم</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card-hover exam-card p-8 rounded-2xl shadow-xl text-center scroll-reveal group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-3xl text-white">📝</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">منصة الامتحانات</h3>
+                        <p class="text-white text-opacity-90 mb-6 leading-relaxed">
+                            دخول إلى نظام الامتحانات الإلكترونية للمدرسة. يمكن للطلاب أداء الاختبارات والحصول على النتائج فوراً.
+                        </p>
+                        <a href="https://farmbot1238.github.io/-/" target="_blank" class="interactive-button bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                            الدخول إلى المنصة
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center scroll-reveal group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-blue-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-3xl text-blue-600">💡</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">مميزات المنصة</h3>
+                        <ul class="text-gray-600 text-right space-y-3 mb-6">
+                            <li class="flex items-center justify-end">
+                                <span class="mr-3">نتائج فورية بعد الاختبار</span>
+                                <span class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </span>
+                            </li>
+                            <li class="flex items-center justify-end">
+                                <span class="mr-3">أسئلة متنوعة وأنماط مختلفة</span>
+                                <span class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </span>
+                            </li>
+                            <li class="flex items-center justify-end">
+                                <span class="mr-3">تتبع التقدم والأداء</span>
+                                <span class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </span>
+                            </li>
+                            <li class="flex items-center justify-end">
+                                <span class="mr-3">دعم كامل للأجهزة المختلفة</span>
+                                <span class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                    <span class="text-green-600 text-sm">✓</span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                            <p class="text-blue-700 text-sm">للاستفسارات التقنية يرجى التواصل مع إدارة المدرسة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graduates Section -->
+    <section id="graduates" class="py-16 bg-gray-50 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-800 mb-4">أبرز الشخصيات الخريجة</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">شخصيات بارزة من خريجي المدرسة تولّوا مناصب قيادية وأثروا في مجتمعهم</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center scroll-reveal group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-bl-full opacity-10"></div>
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <span class="text-3xl">👤</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 gradient-text">الاسم الثلاثي</h3>
+                        <p class="text-gray-600 font-medium">المنصب</p>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center scroll-reveal group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-bl-full opacity-10"></div>
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <span class="text-3xl">👤</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 gradient-text">الاسم الثلاثي</h3>
+                        <p class="text-gray-600 font-medium">المنصب</p>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center scroll-reveal group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-bl-full opacity-10"></div>
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <span class="text-3xl">👤</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 gradient-text">الاسم الثلاثي</h3>
+                        <p class="text-gray-600 font-medium">المنصب</p>
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">تواصل معنا</h2>
+                <p class="text-lg text-gray-600">نحن هنا للإجابة على جميع استفساراتكم</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-center">طرق التواصل</h3>
+                    <div class="space-y-6">
+                        <div class="contact-item flex items-center justify-center p-4 rounded-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center ml-4 shadow-lg">
+                                <span class="text-2xl text-white">📞</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold text-lg gradient-text">رقم الهاتف</div>
+                                <div class="text-gray-600"}>0772530028</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item flex items-center justify-center p-4 rounded-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center ml-4 shadow-lg">
+                                <span class="text-2xl text-white">✉️</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold text-lg gradient-text">البريد الإلكتروني (Gmail)</div>
+                                <div class="text-gray-600">سيتم إضافة الإيميل لاحقاً</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item flex items-center justify-center p-4 rounded-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center ml-4 shadow-lg">
+                                <span class="text-2xl text-white">📘</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold text-lg gradient-text">صفحة الفيسبوك</div>
+                                <div class="text-gray-600">مدرسة الشهيد سائد المعايطه الثانويه للبنين</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center ml-3">
+                            <span class="text-white font-bold text-lg">🏫</span>
+                        </div>
+                        <h3 class="text-xl font-bold">مدرسة الشهيد سائد المعايطة</h3>
+                    </div>
+                    <p class="text-gray-300">نبني جيل المستقبل بتعليم متميز وبيئة تعليمية محفزة للإبداع والتميز</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition duration-300">الرئيسية</a></li>
+                        <li><a href="#about" class="hover:text-white transition duration-300">تعريف المدرسة</a></li>
+                        <li><a href="#achievements" class="hover:text-white transition duration-300">إنجازات المدرسة</a></li>
+                        <li><a href="#exams" class="hover:text-white transition duration-300">الامتحانات الإلكترونية</a></li>
+                        <li><a href="#graduates" class="hover:text-white transition duration-300">أبرز الخريجين</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">معلومات إضافية</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-white transition duration-300">تاريخ المدرسة</a></li>
+                        <li><a href="#achievements" class="hover:text-white transition duration-300">الإنجازات</a></li>
+                        <li><a href="#exams" class="hover:text-white transition duration-300">الامتحانات الإلكترونية</a></li>
+                        <li><a href="#graduates" class="hover:text-white transition duration-300">ابرز الشخصيات</a></li>
+                        <li><a href="#contact" class="hover:text-white transition duration-300">التواصل</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">تابعنا</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <span class="text-sm">📘</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transition duration-300">
+                            <span class="text-sm">🐦</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition duration-300">
+                            <span class="text-sm">📷</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p class="text-lg font-medium">تصميم وتطوير: أحمد سامر المعايطة</p>
+                <p class="text-sm text-gray-400 mt-2">&copy; 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact form handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            // Show success message
+            const form = event.target;
+            const originalHTML = form.innerHTML;
+            
+            form.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">✅</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">تم إرسال رسالتك بنجاح!</h3>
+                    <p class="text-gray-600 mb-4">سنتواصل معك في أقرب وقت ممكن</p>
+                    <button onclick="resetContactForm(this)" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        إرسال رسالة أخرى
+                    </button>
+                </div>
+            `;
+            
+            // Store original form HTML for reset
+            form.dataset.originalHTML = originalHTML;
+        }
+
+        function resetContactForm(button) {
+            const form = button.closest('form');
+            form.innerHTML = form.dataset.originalHTML;
+            
+            // Re-attach event listener
+            form.addEventListener('submit', handleContactForm);
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stats-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            stats.forEach(stat => {
+                observer.observe(stat);
+            });
+        }
+
+        // Scroll reveal animation
+        function initScrollReveal() {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('revealed');
+            };
+            
+            const hideScrollElement = (element) => {
+                element.classList.remove('revealed');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initial check
+            handleScrollAnimation();
+        }
+
+        // Enhanced button interactions
+        function initButtonInteractions() {
+            const buttons = document.querySelectorAll('.interactive-button');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // Smooth scroll for hero buttons
+        function initHeroButtons() {
+            const heroButtons = document.querySelectorAll('#home .interactive-button');
+            
+            heroButtons.forEach((button, index) => {
+                button.addEventListener('click', function() {
+                    if (index === 0) {
+                        // "تعرف على المدرسة" button
+                        document.querySelector('#about').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else if (index === 1) {
+                        // "تواصل معنا" button
+                        document.querySelector('#contact').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+            initScrollReveal();
+            initButtonInteractions();
+            initHeroButtons();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97b6c18f574532ae',t:'MTc1NzI1Mzg3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
